@@ -1,2 +1,14 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿namespace Delegates
+{
+    public class Program
+    {
+        delegate void LogDel(string text);
+        static void Main(string[] args)
+        {
+            Console.WriteLine("What's your name:");
+            string name = Console.ReadLine() ?? "";
+            LogDel logger = new LogDel((text) => Console.WriteLine(text));
+            logger($"Hello, World! {name}");
+        }
+    }
+}
